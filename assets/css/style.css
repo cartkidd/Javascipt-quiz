@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: #ffffff;
+}
+
+.quiz_box{
+    width: 540px;
+    border-style: solid;
+    border-color: #000000;
+    background: #fff;
+    border-radius: 5px;
+}
