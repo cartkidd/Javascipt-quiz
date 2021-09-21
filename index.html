@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
     <!-- Info Box -->
@@ -12,11 +12,12 @@
     </div>
     <!-- Quiz Box -->
     <div class="quiz_box">
+       
         <header>
             <button id="start_button">Start Quiz!</button>
             <div class="high scores">View High Scores</div>
             <div class="timer">
-                <div class="time_left_txt">Time Left</div>
+                <div class="time_left_txt">Time Left:  <span id="time">05:00</span> minutes</div>
                 <div class="timer_sec">15</div>
             </div>
         </header>
@@ -25,10 +26,10 @@
                 <!-- Here I've inserted question from JavaScript -->
             </div>
             <div class="option_list">
-                <button id="a1" ,="" class="button">answer 1</button>
-                <button id="a2" ,="" class="correct_button">answer 2</button>
-                <button id="a3" ,="" class="button">answer 3</button>
-                <button id="a4" ,="" class="button">answer 4</button>            
+                <button id="a1" class="button">answer 1</button>
+                <button id="a2" class="correct_button">answer 2</button>
+                <button id="a3" class="button">answer 3</button>
+                <button id="a4" class="button">answer 4</button>            
             </div>
         </section>
         <!-- footer of Quiz Box -->
@@ -46,5 +47,6 @@
         <div class="complete_text"></div>
     </div>
     <!-- Questions List -->
-    <script src="questions.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="./js/script.js"></script>
 </body>

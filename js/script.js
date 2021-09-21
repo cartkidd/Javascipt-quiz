@@ -14,8 +14,11 @@ function startQuiz(){
         question_count = 0;
         console.log("restarted quiz!");
         showQuestions(question_count); 
+        var fiveMinutes = 60 * 5,
+        display = document.querySelector('#time');
+        startTimer(fiveMinutes, display);
     }
-
+    showAnswer(question_count);
     answerEngine();    
 
 }
@@ -28,6 +31,25 @@ function showQuestions(index){
     let que_tag = '<span>'+ questions[index].numb + ". " + questions[index].question +'</span>';
     question_text.innerHTML = que_tag; //adding new span tag inside que_tag
     
+}
+
+function showAnswer(index){
+    const showAnswerA = document.querySelector("#a1")
+    let answer_tag = '<span>'+ questions[index].options[0]+'</span>';
+    showAnswerA.innerHTML = answer_tag;
+
+    const showAnswerB = document.querySelector("#a2")
+    let answer_tagB = '<span>'+ questions[index].options[1]+'</span>';
+    showAnswerB.innerHTML = answer_tagB;
+
+    const showAnswerC = document.querySelector("#a3")
+    let answer_tagC = '<span>'+ questions[index].options[2]+'</span>';
+    showAnswerC.innerHTML = answer_tagC;
+
+    const showAnswerD = document.querySelector("#a4")
+    let answer_tagD = '<span>'+ questions[index].options[3]+'</span>';
+    showAnswerD.innerHTML = answer_tagD;
+
 }
 
 //this function listens to clicks and moves the quiz along
@@ -43,8 +65,10 @@ function answerEngine(){
                 console.log("incorrect answer!");
                 question_count++;
                 showQuestions(question_count);
+                showAnswer(question_count);
                 resetAnswers();
                 findCorrectAnswer(question_count);
+                wrong();
                 console.log(question_count);
             });
         }
@@ -58,6 +82,7 @@ function answerEngine(){
         showQuestions(question_count); 
         resetAnswers();
         findCorrectAnswer(question_count);
+        rightOrWrong();
         console.log(question_count);
     }
 
@@ -92,6 +117,40 @@ function resetAnswers(){
 document.getElementById(correct_answer_tag).className += "button";
 
 }
+
+
+function rightOrWrong(){
+ const selectedAnswer = document.querySelector('.result_box')
+ let correctAnswer = 'correct'
+ selectedAnswer.innerHTML = correctAnswer
+}
+
+function wrong(){
+    const wrongAnswer = document.querySelector('.result_box')
+    let falseAnswer = 'false'
+    wrongAnswer.innerHTML = falseAnswer
+}
+ 
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    
+};
 
 /* must-haves:
 
